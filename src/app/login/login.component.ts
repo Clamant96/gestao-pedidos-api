@@ -25,9 +25,7 @@ export class LoginComponent implements OnInit {
 
   ) { }
 
-  ngOnInit(){
-
-  }
+  ngOnInit() {}
 
   /* LOGA O USUARIO NA SESSAO */
   entrar() {
@@ -37,8 +35,8 @@ export class LoginComponent implements OnInit {
       this.alertas.alertaMensagem('Login realizado com sucesso!');
 
       environment.token = this.clienteLogin.token;
-      environment.nome= this.clienteLogin.nome;
-      environment.email= this.clienteLogin.email;
+      //environment.nome= this.clienteLogin.nome;
+      //environment.email= this.clienteLogin.email;
       environment.foto=this.clienteLogin.foto;
       environment.tipo=this.clienteLogin.tipo;
       environment.usuario= this.clienteLogin.usuario;
@@ -54,14 +52,14 @@ export class LoginComponent implements OnInit {
 
       console.log("ID: "+ environment.id);
       console.log("Token: "+ environment.token);
-      console.log("E-mail: "+ environment.email);
-      console.log("Nome: "+ environment.nome);
+      //console.log("E-mail: "+ environment.email);
+      //console.log("Nome: "+ environment.nome);
       console.log("Usuario: "+ environment.usuario);
       console.log("Foto: "+ environment.foto);
       console.log("Pedido ID: "+ environment.pedidos);
       console.log("Lista de Desejos ID: "+ environment.listaDeDesejos);
 
-      this.router.navigate(['/home']);
+      this.router.navigate(['/cliente']);
 
     })
 

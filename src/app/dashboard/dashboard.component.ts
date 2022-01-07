@@ -14,8 +14,8 @@ import { AlertasService } from '../service/alertas.service';
 })
 export class DashboardComponent implements OnInit {
 
-  nome = environment.nome;
-  email = environment.email;
+  nome = environment.usuario;
+  //email = environment.email;
   foto = environment.foto;
   tipo = environment.tipo;
 

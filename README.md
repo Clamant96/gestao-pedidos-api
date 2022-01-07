@@ -1,4 +1,6 @@
-# HelpConnectEcommerce
+# Minha Lista
+
+Lista de produtos: https://deliveryapp.neemo.com.br/delivery/263/menu
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
 

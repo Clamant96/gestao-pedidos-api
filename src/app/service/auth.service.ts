@@ -64,9 +64,9 @@ export class AuthService {
   /* DELOGA DA SESSAO */
   logout() {
     environment.id = 0;
-    environment.nome = '';
+    //environment.nome = '';
     environment.usuario = '';
-    environment.email = '';
+    //environment.email = '';
     environment.senha = '';
     environment.foto = '';
     environment.tipo = '';

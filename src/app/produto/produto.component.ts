@@ -17,14 +17,18 @@ export class ProdutoComponent implements OnInit {
 
   produto: Produto = new Produto();
   listaDeProdutos: Produto[];
+  listaDeProdutosFiltrados: Produto[];
   idListaDeDesejos = environment.listaDeDesejos;
   idPedido = environment.pedidos;
+  categoriaSelecao: string;
 
   categoria: Categoria = new Categoria();
   listaDeCategoria: Categoria[];
   idCategoria: number;
 
   listaDeDesejos: ListaDeDesejos = new ListaDeDesejos();
+
+  estadoAtualProdutos: number;
 
   constructor(
     private produtoService: ProdutoService,
@@ -48,6 +52,8 @@ export class ProdutoComponent implements OnInit {
     this.findAllByProdutos();
     this.findAllByCategoria();
 
+    this.estadoAtualProdutos = 0;
+
   }
 
   /* TRAZ TODOS OS PRODUTOS CADASTRADOS NA BASE DE DADOS */
@@ -63,7 +69,13 @@ export class ProdutoComponent implements OnInit {
     this.categoriaService.findAllCategorias().subscribe((resp: Categoria[]) => {
       this.listaDeCategoria = resp;
 
+      this.categoriaSelecao = resp[0].nome; // INICIALIZA A VARIAVEL
+
     })
+
+    setTimeout(() => {
+      this.selecaoCategoria();
+    }, 100);
 
   }
 
@@ -188,6 +200,41 @@ export class ProdutoComponent implements OnInit {
     }
 
     return permissao;
+
+  }
+
+  /* SELECIONA UMA CATEGOGIA */
+  selecaoCategoria() {
+    this.listaDeProdutosFiltrados = [new Produto()]; // ZERA A VARIAVIEL
+
+    var array = [new Produto()]; // CRIA UM NOVO OBJETO ARRAY PARA ARMAZER OS DADOS FILTRADOS
+
+    array = array.splice(1, 1);
+
+    console.log('INICIALIZACAO: ');
+    console.log(array);
+
+    // INSERE OS PRODITO DE ACORDO COM A SELECAO FEITA EM SELECAO DE CATEGORIA
+    this.listaDeProdutos.map(produto => {
+      if(this.categoriaSelecao == produto.categoria.nome) {
+        array.push(produto);
+
+      }
+
+    });
+
+    this.listaDeProdutosFiltrados = array;
+
+    console.log('PRODUTOS FILTRADOS: ');
+    console.log(this.listaDeProdutosFiltrados);
+
+    if(this.listaDeProdutosFiltrados.length > 0) {
+      this.estadoAtualProdutos = 1;
+
+    }else {
+      this.estadoAtualProdutos = 0;
+
+    }
 
   }
 

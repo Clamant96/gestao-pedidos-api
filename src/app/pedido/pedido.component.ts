@@ -13,8 +13,8 @@ import { PedidoService } from '../service/pedido.service';
 })
 export class PedidoComponent implements OnInit {
 
-  nome = environment.nome;
-  email = environment.email;
+  nome = environment.usuario;
+  //email = environment.email;
 
   pedido: Pedido = new Pedido();
   listaDePedidos: Pedido[];

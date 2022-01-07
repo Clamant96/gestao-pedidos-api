@@ -1,9 +1,9 @@
 export const environment = {
   production: true,
   id: 0,
-  nome: '',
+  //nome: '',
   usuario: '',
-  email: '',
+  //email: '',
   senha: '',
   foto: '',
   tipo: '',
@@ -11,8 +11,7 @@ export const environment = {
   pedidos: 0,
   listaDeDesejos: 0,
   server: 'http://localhost:',
-  //server: 'https://helpconnect-ecommerce.',
   port: '8080'
+  //server: 'https://minha-lista-api.',
   //port: 'herokuapp.com'
-
 }

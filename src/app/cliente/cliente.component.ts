@@ -18,8 +18,8 @@ import { PedidoService } from '../service/pedido.service';
 })
 export class ClienteComponent implements OnInit {
 
-  nome = environment.nome;
-  email = environment.email;
+  nome = environment.usuario;
+  //email = environment.email;
   foto = environment.foto
   idUsuario = environment.id;
   idPedido = environment.pedidos;
@@ -93,7 +93,7 @@ export class ClienteComponent implements OnInit {
     this.authService.findByIdCliente(id).subscribe((resp: Cliente) => {
       this.usuario = resp;
 
-      console.log("Nome: "+ this.usuario.nome);
+      console.log("Nome: "+ this.usuario.usuario);
 
     })
 
@@ -132,9 +132,9 @@ export class ClienteComponent implements OnInit {
         this.alertas.alertaMensagem('Dados atualizados com sucesso, faça login novamente!');
 
         environment.id = 0;
-        environment.nome = '';
+        //environment.nome = '';
         environment.usuario = '';
-        environment.email = '';
+        //environment.email = '';
         environment.senha = '';
         environment.foto = '';
         environment.tipo = '';

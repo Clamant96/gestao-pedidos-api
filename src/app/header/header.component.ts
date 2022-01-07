@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   foto = environment.foto;
   usuario = environment.usuario;
-  nome = environment.nome;
+  nome = environment.usuario;
 
   listaDeProdutos: Produto[];
   tamanhoCarrinho: number;

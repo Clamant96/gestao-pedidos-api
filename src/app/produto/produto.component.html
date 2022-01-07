@@ -1,77 +1,3 @@
-<!-- NOVO TESTE -->
-<!--<div class="tela" *ngIf='adm()'>
-  <div class="container texto">
-    <div class="row d-flex align-items-start justify-content-center">
-        <div class="col-md-5 texto">
-            <a routerLink='/home' class="texto rota-link">
-                <i class="bi bi-chevron-double-left"></i> Home
-            </a>
-            / Produto
-            <h1 class="fs-54 texto texto-responsivo">Produtos</h1>
-            <h5 class="fs-18 texto texto-responsivo">Veja aqui todos os produtos cadastrados ou cadastre um novo:</h5>
-
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <div class="form-group resposividade-botao d-flex justify-content-center flex-column">
-
-                        <input [(ngModel)]='produto.nome' type="text" class="form-control" id="nome" placeholder="Nome">
-
-                        <input [(ngModel)]='produto.descricao' type="text" class="form-control" id="descricao" placeholder="Descricao">
-
-                        <input [(ngModel)]='produto.marca' type="text" class="form-control" id="marca" placeholder="Marca">
-
-                        <input [(ngModel)]='produto.img' type="url" class="form-control" id="img" placeholder="Imagem">
-
-                        <input [(ngModel)]='produto.preco' type="number" class="form-control" id="preco" placeholder="Preco">
-
-                        <input [(ngModel)]='produto.estoque' type="number" class="form-control" id="estoque" placeholder="Estoque">
-
-                        <input [(ngModel)]='produto.qtdPedidoProduto' type="text" class="form-control" id="qtdPedidoProduto" placeholder="QTD Produtos">
-
-                        <label for="categoria" class="w-100">Selecione uma Categoria:</label>
-                        <select [(ngModel)]='idCategoria' class="form-control texto-input" name="categoria" id="categoria" (change)='findByIdCategoria()'>
-
-                          <option *ngFor='let item of listaDeCategoria' value="{{item.id}}">{{item.nome}}</option>
-                        </select>
-
-                        <button class="botao margem-botao" (click)='postProduto()'>Cadastrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-7 texto d-flex justify-content-center flex-column">
-          <div class="row mt-3 d-flex justify-content-center">
-              <div class="col-md-12">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Preco</th>
-                        <th scope="col">Estoque</th>
-                        <th scope="col">Edição</th>
-                      </tr>
-                    </thead>
-                    <tbody class="tr">
-                      <tr *ngFor='let item of listaDeProdutos'>
-                        <td>{{item.nome}}</td>
-                        <td>{{item.preco}}</td>
-                        <td>{{item.estoque}}</td>
-                        <td>
-                          <a class="btn botao-editar" data-bs-toggle="modal" data-bs-target="#putProduto" (click)='findByIdProduto(item.id)' >Editar</a>
-                          <a class="btn botao-editar" (click)='deleteProduto(item.id)' >Excluir</a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-              </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>-->
-
-<!-- ######################### CAMPOS DE PRODUTO - PUT ######################### -->
 <!-- MODAL DE PRODUTO / PUT -->
 <div *ngIf='adm()' class="modal fade texto" id="putProduto" tabindex="-1" role="dialog" aria-labelledby="modalputProduto" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
@@ -114,17 +40,23 @@
 </div>
 
 <section>
-  <div class="bloco" *ngFor='let item of listaDeProdutos'>
+  <div class="selecao-categoria">
+    <p>Categoria</p>
+    <select [(ngModel)]='categoriaSelecao' class="form-control input" name="categoria" id="categoria" (change)='selecaoCategoria()'>
+      <option *ngFor='let item of listaDeCategoria' value="{{item.nome}}">{{item.nome}}</option>
+    </select>
+  </div>
+  <div class="bloco" *ngFor='let item of listaDeProdutosFiltrados'>
+    <h2>{{item.nome}}</h2>
     <div class="img">
       <img src="{{item.img}}" alt="{{item.nome}}">
     </div>
     <div class="conteudo">
-      <h5>{{item.categoria.nome}}</h5>
-      <h2>{{item.nome}}</h2>
+      <!--<h5>{{item.categoria.nome}}</h5>-->
       <h4>{{item.descricao}}</h4>
       <h3>R$ {{item.preco}}</h3>
     </div>
-    <div class="botoes">
+    <div class="botoes" *ngIf='!adm()'>
       <button id="liveToastBtn" (click)='adicionaItemCarrinho(item.id, idPedido)' >
         <div class="icone">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -140,7 +72,7 @@
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
           </svg>
         </div>
-      <p>Lista de Desejos</p>
+        <p>Lista de Desejos</p>
       </button>
     </div>
   </div>

@@ -133,6 +133,46 @@ section {
   height: auto;
 
   display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  flex-wrap: wrap;
+
+}
+
+section .selecao-categoria {
+  margin-top: 2%;
+
+  width: 100%;
+  height: auto;
+
+}
+
+section .selecao-categoria p {
+  font-size: 1rem !important;
+  font-weight: 600;
+
+  color: var(--text-black);
+
+}
+
+section .selecao-categoria select {
+  width: 20%;
+  height: auto;
+
+  border: 1px solid #c3c3c3;
+
+}
+
+section .bloco {
+  position: relative;
+
+  margin: 1%;
+
+  width: 31.3333%;
+  height: auto;
+
+  display: flex;
   align-items: center;
   justify-content: flex-start;
 
@@ -140,16 +180,19 @@ section {
 
 }
 
-section .bloco {
-  margin: 2%;
+section .bloco h2 {
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
 
-  width: 29.3333%;
+  margin: 0 !important;
+
+  width: 100%;
   height: auto;
 
 }
 
 section .bloco .img {
-  width: 100%;
+  width: 70%;
   height: auto;
 
 }
@@ -163,16 +206,23 @@ section .bloco .img img {
 }
 
 section .bloco .conteudo {
-  margin-top: 3%;
+  position: absolute;
 
-  width: 100%;
+  padding: 2%;
+
+  width: 70%;
   height: auto;
 
-}
+  bottom: 0;
+  right: 0;
 
-section .bloco .conteudo h2 {
-  font-size: 1.8rem !important;
-  font-weight: 800 !important;
+  margin-bottom: 22%;
+
+  background-color: var(--background-card);
+
+  border-radius: 5px;
+  border: 1px solid var(--background-input);
+  box-shadow: 0px 3px 5px -5px var(--shadow);
 
 }
 
@@ -182,6 +232,8 @@ section .bloco .conteudo h4 {
 
   color: var(--text-p) !important;
 
+  margin: 0 !important;
+
 }
 
 section .bloco .conteudo h3 {
@@ -189,6 +241,8 @@ section .bloco .conteudo h3 {
   font-weight: 600 !important;
 
   color: var(--text-black) !important;
+
+  margin: 0 !important;
 
 }
 
@@ -198,6 +252,8 @@ section .bloco .conteudo h5 {
 
   color: var(--text-p) !important;
 
+  margin: 0 !important;
+
 }
 
 section .botoes {
@@ -206,13 +262,16 @@ section .botoes {
   flex-direction: column;
   justify-content: center;
 
+  width: 100%;
+  height: auto;
+
 }
 
 section .botoes button {
   margin-top: 1%;
   margin-bottom: 1%;
 
-  width: 60% !important;
+  width: 62% !important;
   height: auto !important;
 
   display: flex;
