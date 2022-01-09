@@ -75,7 +75,7 @@ export class ProdutoComponent implements OnInit {
 
     setTimeout(() => {
       this.selecaoCategoria();
-    }, 100);
+    }, 500);
 
   }
 

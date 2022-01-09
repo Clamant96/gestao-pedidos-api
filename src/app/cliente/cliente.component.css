@@ -1108,7 +1108,7 @@ section .exibirPerfil .perfil .gerenciarPerfil .dados .painel .dadosPerfil .cada
 section .exibirPerfil .perfil .gerenciarPerfil .dados .painel .dadosPerfil .cadastro .input {
   padding: 1%;
 
-  width: 98%;
+  width: 100%;
   height: auto;
 
 }
@@ -1116,7 +1116,7 @@ section .exibirPerfil .perfil .gerenciarPerfil .dados .painel .dadosPerfil .cada
 section .exibirPerfil .perfil .gerenciarPerfil .dados .painel .dadosPerfil .cadastro .input p {
   padding: 1%;
 
-  width: 98%;
+  width: 100%;
   height: auto;
 
   font-size: 15px;
@@ -1129,7 +1129,7 @@ section .exibirPerfil .perfil .gerenciarPerfil .dados .painel .dadosPerfil .cada
 section .exibirPerfil .perfil .gerenciarPerfil .dados .painel .dadosPerfil .cadastro .input input {
   padding: 1%;
 
-  width: 96%;
+  width: 100%;
   height: auto;
 
   font-size: 15px;

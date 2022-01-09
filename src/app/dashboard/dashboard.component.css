@@ -1320,6 +1320,34 @@ section .categorias .botoes .acao-link p {
 
 }
 
+.section-mesa {
+  width: 70vw;
+  height: auto;
+
+}
+
+.section-mesa .bloco {
+  padding: 1%;
+
+  width: 100%;
+  height: auto;
+
+  border-radius: 5px;
+
+}
+
+.section-mesa .conteudo {
+  width: 100%;
+  height: auto;
+
+}
+
+.section-mesa .bloco .conteudo .pedidos {
+  width: 100%;
+  height: auto;
+
+}
+
 @media(max-width: 600px) {
   .texto-responsivo {
     display: flex;

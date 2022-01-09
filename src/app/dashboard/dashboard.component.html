@@ -19,6 +19,20 @@
                       </div>-->
                   </div>
                   <ul class="botoes nav nav-tabs" id="myTab" role="tablist">
+                    <li class="comprar nav-item" routerLink='/cliente' >
+                      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                          <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                            </svg>
+                          </div>
+                          <div class="hr">
+                              <hr />
+                          </div>
+                          <p>Perfil</p>
+                      </button>
+                    </li>
                     <li class="comprar nav-item" role="presentation">
                         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
                             <p>Produtos</p>
@@ -35,18 +49,17 @@
                           <p>Nova</p>
                         </button>
                     </li>
-                    <li class="comprar nav-item" routerLink='/cliente' >
-                      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
-                          <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                            </svg>
-                          </div>
-                          <div class="hr">
-                              <hr />
-                          </div>
-                          <p>Perfil</p>
+                    <li class="comprar nav-item" role="presentation">
+                      <button class="nav-link" id="usuarios-tab" data-bs-toggle="tab" data-bs-target="#usuarios" type="button" role="tab" aria-controls="usuarios" aria-selected="false">
+                          <p>Usuarios</p>
+                      </button>
+                      <button class="nav-link botao-editar-perfil" id="novousuario-tab" data-bs-toggle="tab" data-bs-target="#novousuario" type="button" role="tab" aria-controls="novousuario" aria-selected="false">
+                        <p>Adicionar</p>
+                      </button>
+                    </li>
+                    <li class="comprar nav-item" role="presentation">
+                      <button class="nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos" type="button" role="tab" aria-controls="pedidos" aria-selected="false">
+                          <p>Pedidos</p>
                       </button>
                     </li>
                   </ul>
@@ -137,6 +150,7 @@
                                   </section>
 
                                 </div>
+
                                 <div class="tab-pane fade" id="novacategoria" role="tabpanel" aria-labelledby="novacategoria-tab">
 
                                   <!-- EDITAR PERFIL USUARIO -->
@@ -151,6 +165,7 @@
                                   </div>
 
                                 </div>
+
                                 <div class="tab-pane fade" id="novoproduto" role="tabpanel" aria-labelledby="novoproduto-tab">
 
                                   <!-- EDITAR PERFIL USUARIO -->
@@ -193,6 +208,24 @@
                                   </div>
 
                                 </div>
+
+                                <div class="tab-pane fade" id="pedidos" role="tabpanel" aria-labelledby="pedidos-tab">
+
+                                  <!-- LISTAGEM DE PEDIDOS -->
+                                  <section class="section-mesa">
+                                    <div class="bloco" *ngFor='let pedido of listaDePedidos'>
+                                      <div class="conteudo" *ngIf="!(pedido.cliente.tipo == 'adm')">
+                                        <h2>{{pedido.cliente.usuario}}</h2>
+                                        <div class="pedidos" *ngFor='let produto of pedido.produtos'>
+                                          <p>{{ produto.nome }}</p>
+                                        </div>
+                                        <h3>R$ {{pedido.valorTotal}}</h3>
+                                    </div>
+                                    </div>
+                                  </section>
+
+                                </div>
+
                               </div>
                               <!-- ############# -->
                           </div>

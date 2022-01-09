@@ -1,3 +1,5 @@
+import { PedidoService } from './../service/pedido.service';
+import { Pedido } from './../model/Pedido';
 import { CategoriaService } from 'src/app/service/categoria.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -24,12 +26,14 @@ export class DashboardComponent implements OnInit {
 
   categoria: Categoria = new Categoria();
   listaDeCategoria: Categoria[];
+  listaDePedidos: Pedido[];
   idCategoria: number;
 
   constructor(
     private router: Router,
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
+    private pedidosService: PedidoService,
     private alertas: AlertasService
 
   ) { }
@@ -44,6 +48,7 @@ export class DashboardComponent implements OnInit {
 
     this.findAllByProdutos();
     this.findAllByCategoria();
+    this.findAllByPedidos();
 
   }
 
@@ -63,6 +68,36 @@ export class DashboardComponent implements OnInit {
       this.produto = resp;
 
     })
+
+  }
+
+  /* CARREGA TODOS OS PEDIDOS CADASTRADOS NA BASE DE DADOS */
+  findAllByPedidos() {
+    this.pedidosService.findAllByPedidos().subscribe((resp: Pedido[]) => {
+      this.listaDePedidos = resp; // CARREGA A LISTA DE PEDIDOS CADASTRADOS NA BASE DE DADOS
+
+      this.listaDePedidos.map(produto => {
+
+        var memoriaProduto = [new Produto()]; // INSTANCIA UM NOVO VALOR DE MEMORIA DO TIPO PRODUTO
+
+        produto.produtos.map(item => {
+          this.produtoService.findByIdProduto(item.id).subscribe((resp: Produto) => {
+            memoriaProduto.push(resp); // ARMAZENA OS PRODUTOS EM MEMORIA
+
+          });
+
+        });
+
+        memoriaProduto = memoriaProduto.splice(1, 1); // REMOVE O NOME PRODUTO DO ARRAY ANTES DE CARREGAR NO PRODUTO NOVAMENTE
+
+        produto.produtos = memoriaProduto; // INSERE OS PRODUTOS DENTRO DO OBJETO PRODUTO VINCULADO AO PEDIDO
+
+      });
+
+      console.log('LISTA AJUSTADA: ');
+      console.log(this.listaDePedidos);
+
+    });
 
   }
 
