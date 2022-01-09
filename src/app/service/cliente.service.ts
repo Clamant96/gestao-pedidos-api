@@ -1,3 +1,4 @@
+import { Cliente } from './../model/Cliente';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -23,6 +24,16 @@ export class ClienteService {
 
   ) { }
 
+  findAllUsuarios(): Observable<Cliente[]> {
+
+    return this.http.get<Cliente[]>(`${this.api}/clientes`, this.autorizacao);
+  }
+
+  findByIdUsuarios(id: number): Observable<Cliente> {
+
+    return this.http.get<Cliente>(`${this.api}/clientes/${id}`, this.autorizacao);
+  }
+
   findByIdListaDeDesejos(id: number): Observable<ListaDeDesejos> {
 
     return this.http.get<ListaDeDesejos>(`${this.api}/listadesejo/${id}`, this.autorizacao);
@@ -41,6 +52,19 @@ export class ClienteService {
   removerItemListaDeDesejos(idProduto: number, idListaDeDesejo: number): Observable<Produto[]> {
 
     return this.http.delete<Produto[]>(`${this.api}/listadesejo/produto_lista/produtos/${idProduto}/listaDesejos/${idListaDeDesejo}`, this.autorizacao);
+  }
+
+  putUsuario(usuario: Cliente) {
+
+    const obj = {
+      id: usuario.id,
+      usuario: usuario.usuario,
+      senha: usuario.senha,
+      foto: usuario.foto,
+      tipo: usuario.tipo
+    }
+
+    return this.http.put(`${this.api}/clientes/atualizar`, obj);
   }
 
 }

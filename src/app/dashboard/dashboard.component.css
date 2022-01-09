@@ -1324,21 +1324,32 @@ section .categorias .botoes .acao-link p {
   width: 70vw;
   height: auto;
 
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  flex-wrap: wrap;
+
 }
 
 .section-mesa .bloco {
   padding: 1%;
+  margin: 1%;
 
-  width: 100%;
+  width: 31.3333%;
   height: auto;
-
-  border-radius: 5px;
 
 }
 
 .section-mesa .conteudo {
   width: 100%;
   height: auto;
+
+}
+
+.section-mesa .conteudo h3 {
+  margin-top: 5%;
 
 }
 
