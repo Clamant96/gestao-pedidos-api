@@ -106,6 +106,8 @@ export class DashboardComponent implements OnInit {
 
         var memoriaProduto = [new Produto()]; // INSTANCIA UM NOVO VALOR DE MEMORIA DO TIPO PRODUTO
 
+        produto.valorTotal = Number(produto.valorTotal.toFixed(2)); // VALOR TOTAL AJUSTADO
+
         produto.produtos.map(item => {
           this.produtoService.findByIdProduto(item.id).subscribe((resp: Produto) => {
             memoriaProduto.map(verifica => { // NAVEGA NO ARRAY VERIFICANDO SE EXISTE DUPLICIDADE DE DADOS
