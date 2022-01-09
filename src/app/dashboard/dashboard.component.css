@@ -1359,6 +1359,111 @@ section .categorias .botoes .acao-link p {
 
 }
 
+section .input {
+  width: 70vw !important;
+  height: auto;
+
+}
+
+section .input input {
+  width: 100% !important;
+  height: auto;
+
+}
+
+section .input .select {
+  padding: 1%;
+
+  width: 100%;
+  height: auto;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  color: var(--text-gray2);
+
+  border-radius: 3px;
+  border: 1px solid var(--text-light-gray2);
+
+}
+
+section .usuarios {
+  width: 70vw;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+section .usuarios .botoes {
+  width: 10%;
+  height: auto;
+
+}
+
+section .usuarios .botoes a {
+  text-decoration: none;
+
+  background-color: var(--text-light-blue-cart);
+  background-image: linear-gradient(var(--text-light-blue-cart) , var(--text-blue-cart));
+
+  margin: 2%;
+
+  width: 96%;
+  height: 3vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-white) !important;
+
+  border-radius: 3px;
+
+}
+
+section .usuarios .botoes a .icone {
+  width: 20%;
+  height: 100%;
+
+  background-color: var(--text-light-orange);
+  background-image: linear-gradient(var(--text-light-orange) , var(--text-orange));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 3px 0px 0px 3px;
+
+}
+
+section .usuarios .botoes a .icone svg {
+  padding: 10%;
+
+  width: 100%;
+  height: auto;
+
+}
+
+section .usuarios .botoes a p {
+  width: 80%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+
+}
+
+.usuarios .conteudo h2 {
+  font-size: 18px !important;
+
+}
+
 @media(max-width: 600px) {
   .texto-responsivo {
     display: flex;

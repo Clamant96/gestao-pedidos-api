@@ -67,4 +67,9 @@ export class ClienteService {
     return this.http.put(`${this.api}/clientes/atualizar`, obj);
   }
 
+  deletaUsuario(id: number) {
+
+    return this.http.delete(`${this.api}/clientes/${id}`, this.autorizacao);
+  }
+
 }

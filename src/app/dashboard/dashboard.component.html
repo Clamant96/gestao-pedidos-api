@@ -244,7 +244,7 @@
                                           </div>
                                           <p>Editar</p>
                                         </a>
-                                        <a class="acao-link" (click)='deleteCategoria(item.id)' >
+                                        <a class="acao-link" (click)='deleteUsuario(item.id)' >
                                           <div class="icone">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                               <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -263,7 +263,6 @@
 
                                   <!-- CADASTRO DE USUARIO -->
                                   <section>
-                                    Cadastrar Usuario >>>>..
                                     <div class="input">
                                       <label for="usuario">Usuario</label>
                                       <input [(ngModel)]='usuario.usuario' type="text" name="usuario" class="form-control texto-input" id="usuario" placeholder="Usuario">
@@ -271,13 +270,11 @@
                                       <label for="foto">Foto</label>
                                       <input [(ngModel)]='usuario.foto' type="text" name="foto" class="form-control texto-input" id="foto" placeholder="Foto">
 
-                                      <div class="input">
-                                        <select (change)='tipoUsuario($event)' name="tipo" id="tipo">
-                                            <option>Selecione um tipo de usuário:</option>
-                                            <option value="normal">Normal</option>
-                                            <option value="adm">Administrador</option>
-                                        </select>
-                                      </div>
+                                      <label for="tipo">Selecione o tipo de usuário</label>
+                                      <select (change)='tipoUsuario($event)' name="tipo" id="tipo" class="form-control texto-input select" >
+                                        <option value="normal">Normal</option>
+                                        <option value="adm">Administrador</option>
+                                      </select>
 
                                       <label for="senha">Senha</label>
                                       <input [(ngModel)]='usuario.senha' type="password" name="senha" class="form-control texto-input" id="senha" placeholder="Senha">
@@ -383,25 +380,23 @@
         </div>
         <div class="modal-body">
             <div class="form-group texto">
-                <label for="usuario">Usuario</label>
-                <input [(ngModel)]='usuario.usuario' type="text" name="usuario" class="form-control texto-input" id="usuario" placeholder="Usuario">
+              <label for="usuario">Usuario</label>
+              <input [(ngModel)]='usuario.usuario' type="text" name="usuario" class="form-control texto-input" id="usuario" placeholder="Usuario">
 
-                <label for="foto">Foto</label>
-                <input [(ngModel)]='usuario.foto' type="text" name="foto" class="form-control texto-input" id="foto" placeholder="Foto">
+              <label for="foto">Foto</label>
+              <input [(ngModel)]='usuario.foto' type="text" name="foto" class="form-control texto-input" id="foto" placeholder="Foto">
 
-                <div class="input">
-                  <select (change)='tipoUsuario($event)' name="tipo" id="tipo">
-                      <option>Selecione um tipo de usuário:</option>
-                      <option value="normal">Normal</option>
-                      <option value="adm">Administrador</option>
-                  </select>
-                </div>
+              <label for="tipo">Selecione um tipo de usuário</label>
+              <select (change)='tipoUsuario($event)' name="tipo" id="tipo" class="form-control texto-input select" >
+                  <option value="normal">Normal</option>
+                  <option value="adm">Administrador</option>
+              </select>
 
               <label for="senha">Senha</label>
               <input [(ngModel)]='usuario.senha' type="password" name="senha" class="form-control texto-input" id="senha" placeholder="Senha">
 
               <label for="confirmar-senha">Confirmar senha</label>
-              <input (input)='confirmarSenha($event)' type="password" id="confirmar-senha" placeholder="Confirmar senha" required>
+              <input (input)='confirmarSenha($event)' type="password" class="form-control texto-input" id="confirmar-senha" placeholder="Confirmar senha" required>
             </div>
         </div>
         <div class="modal-footer">

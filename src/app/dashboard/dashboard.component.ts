@@ -266,7 +266,7 @@ export class DashboardComponent implements OnInit {
   }
 
   /* CADASTRA UM NOVO USUARIO */
-  postUsuario(){
+  postUsuario() {
     this.usuario.tipo = this.tipoUsuarioPut;
 
     if(this.usuario.senha != this.confirmarUsuarioPost){
@@ -332,6 +332,14 @@ export class DashboardComponent implements OnInit {
 
       this.findAllByCategoria();
     })
+
+  }
+
+  /* DELETA USUARIO DA BASE DE DADOS */
+  deleteUsuario(id: number) {
+    this.clienteService.deletaUsuario(id).subscribe((resp) => {
+      console.log(resp);
+    });
 
   }
 
